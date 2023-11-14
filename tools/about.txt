@@ -1,0 +1,1 @@
+This folder holds a specification of the python software environment used in Linux Ubuntu 23.04 used to develop this project.

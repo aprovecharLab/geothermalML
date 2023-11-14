@@ -1,0 +1,4 @@
+The example datafiles can be downloaded from here as hdf5 archives:
+
+https://www.dropbox.com/scl/fo/10ockike699kh1h17hzeh/h?rlkey=yfe1qosci9qwuihq7tdq0paqt&dl=0
+

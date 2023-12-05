@@ -1,94 +1,76 @@
-# requirements
+# Requirements
 
-Recommendations for setting up machine learning tools on a personal computer using  python, pytorch, and scikits-learn all within the jupyter lab environment.
+Here are some recommendations for setting up machine learning tools on a personal computer using  python, pytorch, and scikits-learn all within the jupyter lab environment.
  
 ## Prerequisites
 
 #### What things you need to install the software and how to install them.
 
--   A personal computer preferably with an integral or external graphic processing unit (GPU). I am using both a Dell XPS-13 9370 Developer Edition laptop \[This machine has a  Thunderbolt 3 USB C port and an external NVIDIA GTX 1070Ti  GPU in an Alito Node Pro enclosure\] and a System-76 AMD laptop with an integrated GPU. Both are running Ubuntu 20.04 LTS operating systems. You can do the same with Microsoft Windows 10  installed or with Apple Macintosh Computers.
-
-- A python programming language distribution of which the Anadonda distributions are highly recommended. 
+-   A personal computer preferably with an integral or external graphic processing unit (GPU). In December 2023 I am using both a Dell XPS-13 9370 Developer Edition laptop \[This machine has a  Thunderbolt 3 USB C port and an external NVIDIA GTX 1070Ti  GPU in an Alito Node Pro enclosure\] and a System-76 AMD laptop with an integrated GPU. Both are running Ubuntu 23.10 operating systems. You can do the same with Microsoft Windows 10 or 11 installed or with Apple Macintosh Computers.
 
 - You can download Ubuntu Linux from:
-https://ubuntu.com/download/desktop
+https://ubuntu.com/download/desktop.
     
-- You can download the latest Anaconda distribution for python 3.8+ from: https://www.anaconda.com/products/individual#Downloads
+- A python programming language distribution of which the Mamba or the Anadonda distributions are highly recommended. 
 
-- Once you have Anaconda python installed then installing pytorch and all else is straight forward as explained below.     
+- I am currently using the Mamba distribution of python. You can read about how to install the latest Mamba distribution for python here
+https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html.
 
 ## Install
 
-*these instructions are for linux, but in windows you can open an Anaconda console or terminal or even do some of these things within a GUI*
+The file in this git archive "tools/install_mamba_notes.txt" describes the specific instructions for installation and set-up of the python+pytorch environment as used for this project. This creates a pytorch-specific python environment for geoscience machine learning called pytorchGeo. The "yml" file specifying this environment is appended below.
 
-### First install the latest anaconda python 3.8+, open a terminal, and update
+*I use python environments for each type of project like this, so that if something becomes corrupted you do not mangle your base python environment.*
 
-- you will notice that once you install Anaconda,  "(base)" appears before your terminal prompt as:
+*These instructions are for linux, but in windows you can open an python console or terminal or even do some of these things within a GUI.*
 
-```console
-(base) $
-```
-- to update the "base" environment do: 
+### Activate your new environment, then just for fun deactivate again:
 
 ```console
-(base) $ conda update conda
-(base) $ conda update --all
-```
-### Create a specific environment for your pytorch machine learning functions
-
-*I use python environments for each type of project like this, so that if something becomes corrupted you do not mangle your base python environment*
-
-- create a "yml" file for your environment. this specifies exactly which libraries and perhaps specific versions your python knows about. Look in folder "./tools/anaconda_environments/" for example yml files. As an example a workable pytorch environment file is called "environment-pytorch.yml" and is shown at the bottom of this document (for up-to-date instructions for pytorch see:  https://pytorch.org/get-started/locally/). Two methods of installation are used here (1) conda and (2) pip. At the top of this file you will see the name of the environment we use, the "channels" or sources of the libraries, and lists of all of the packages we include.  Of course feel free to add or subtract packages from this file. 
-
-- create the environment itself with the command:
-
-```console
-$ conda env create -f environment-pytorch.yml
-```
-
-- activate your new environment, then just for fun deactivate again:
-
-```console
-(base) $ conda activate pytorch
-(pytorch) $ conda deactivate
+(base) $ mamba activate pytorchGeo
+(pytorchGeo) $ mamba deactivate
 (base) $
 ```
 *I have found that updating the pytorch environment often breaks things ... you might need to delete the environment occasionally and reinstall rather than updating within it ... some quirk about pytorch dependencies. You should be able to update within environments, but I've had trouble with pytorch in this regard.*
 
- - you can list all of your environments
+ - You can list all of your environments:
 
 ```console
-(base) $ conda info -e
+(base) $ mamba info -e
 ```
 
- - if you add other environment make sure you are at "base"
+ - If you add other environment make sure you are at "base".
 
- - later once you are sick of this, you can remove the environment and all of its contents
+ - Later once you are sick of this, you can remove the environment and all of its contents:
 
 ```console
-(base) $ conda env remove --name pytorch
+(base) $ mamba env remove --name pytorchGeo
 ```
 
 ## Ready to go
 
- - activate your environment
+ - Activate your environment:
 
 ```console
-(base) $ conda activate pytorch
+(base) $ mamba activate pytorchGeo
 ```
 
- - run jupyter lab
+ - Run jupyter lab:
 
 ```console
-(pytorch) $ jupyter lab
+(pytorchGeo) $ jupyter lab
+```
+or use a different browser from the system default, e.g.,
+``` console
+(pytorchGeo) $ jupyter lab --browser=firefox
 ```
 
- - a new web browser page will open, if not open a browser and point to the URL displayed in this terminal
+ - A new web browser page will open, if not open a browser and point to the URL displayed in this terminal.
 
- - when you are all done - close your browser and kill the jupyter lab server by typing:
+ - When you are all done - close your browser and kill the jupyter lab server by typing:
 
 ```console
-(pytorch) $ ^c^c
+(pytorchGeo) $ ^c^c
 ```
 
 ---
@@ -97,17 +79,28 @@ $ conda env create -f environment-pytorch.yml
 
  - By defining the pytorch environment using the "environment-pytorch.yml" file we have made available all of the tools you will likely need: python, numpy, matplotlib, scikits-xxx, pytorch (including CUDA libraries for the GPU if you have one), and jupyter lab plus more. 
 
+ - You can run the jupyter notebooks (*.ipynb) in the folder "tests" to test your pytorch installation and whether or not the GPU on your computer functions properly.
 
-## Example environment file: environment-pytorch.yml
+
+## Example environment file as described in "tools" folder: environment-pytorchGeo.yml
 
 ```yml
-name: pytorch
+name: pytorchGeo
 # see https://pytorch.org/get-started/locally/
 
+# to use: perform two steps ... make a jupyterlab barebones env, then activate and update with this yml file
+# bash Mambaforge-$(uname)-$(uname -m).sh
+# mamba create -n pytorchGeo jupyterlab -c conda-forge
+### mamba activate pytorchGeo
+# cd Desktop/AnacondaEnvironments/pyTorch/
+# mamba env update -f environment-pytorchGeo.yml
+
 channels: 
+  - conda-forge
   - pytorch
   - nvidia
-  - conda-forge
+  - gpytorch
+  # - fastchan
 
 dependencies:
   - python
@@ -116,22 +109,27 @@ dependencies:
   - scikit-learn
   - scikit-image
   - h5py
-  - ipywidgets
-  - jupyterlab
+  - pytables
+  # - jupyter ### jupyter notebook only
+  # - jupyterlab ### seems this might cause trouble when updating
   - jupytext
+  - ipywidgets
+  - ipympl
   - pandas
   - matplotlib
   - seaborn
   - pillow
   - pytorch
   - torchvision
-  - cudatoolkit=11.1
-#
-  - umap-learn
-  - susi
-  - somoclu
+  - torchaudio
+  - cudatoolkit=11.8
 #
   - bokeh
+#
+  - umap-learn
+#
+  # - susi
+  # - somoclu
 #
   - captum
   - tqdm
@@ -142,26 +140,48 @@ dependencies:
 #
   - opencv
   - pywavelets
+  - pycwt
+#
+  - cython
+  - pyproj
+  - shapely
+  - rtree
+  - pyorbital
+#
+  - sympy
+#
+  - astropy
+#
+  - tabulate
+#
+  - gpytorch
+  # - gpy
+  # - botorch
+  # - fastai
+#
+  - opentsne
+#
+  - tslearn
 #
   - pip
   - pip:
     - pyro-ppl
     - SALib    
-    - gpytorch
-    - tables
     - torch-summary
     - kornia
     - imgaug
-    - deap
+    - pygeotools
+    - pygeoprocessing
+    - pyrtools
+    - earthpy
+    - filterpy
     - acoustics
-    - brancher
+    - deap
     - arviz
-    - pymc3
-    - gpytorch
     - desolver
-    - blitz-bayesian-pytorch
-    - minisom
-    - quicksom
-    - simpsom
+    # - tables ### this is same as pytables installed above
+    # - emukit
+    # - minisom
+    # - quicksom
+    # - simpsom
 ```
-

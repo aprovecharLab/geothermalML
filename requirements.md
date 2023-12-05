@@ -77,7 +77,7 @@ or use a different browser from the system default, e.g.,
 
 ## Running some programs
 
- - By defining the pytorch environment using the "environment-pytorch.yml" file we have made available all of the tools you will likely need: python, numpy, matplotlib, scikits-xxx, pytorch (including CUDA libraries for the GPU if you have one), and jupyter lab plus more. 
+ - By defining the pytorch environment using the "environment-pytorchGeo.yml" file we have made available all of the tools you will likely need: python, numpy, matplotlib, scikits-xxx, pytorch (including CUDA libraries for the GPU if you have one), and jupyter lab plus more. 
 
  - You can run the jupyter notebooks (*.ipynb) in the folder "tests" to test your pytorch installation and whether or not the GPU on your computer functions properly.
 

@@ -1,1 +1,1 @@
-This folder holds a specification of the python software environment used in Linux Ubuntu 23.04 used to develop this project.
+This folder holds a specification of the python software environment used in Linux Ubuntu 23.04 used to develop this project. The fule "UserGuide" contains instructions for installing this software in Microsoft Windows. 

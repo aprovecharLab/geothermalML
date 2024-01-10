@@ -1,0 +1,98 @@
+name: pytorchGeo
+# see https://pytorch.org/get-started/locally/
+
+# to use: perform two steps ... make a jupyterlab barebones env, then activate and update with this yml file
+# bash Mambaforge-$(uname)-$(uname -m).sh
+# mamba create -n pytorchGeo jupyterlab -c conda-forge
+### mamba activate pytorchGeo
+# cd Desktop/AnacondaEnvironments/pyTorch/
+# mamba env update -f environment-pytorchGeo.yml
+
+channels: 
+  - conda-forge
+  - pytorch
+  - nvidia
+  - gpytorch
+  # - fastchan
+
+dependencies:
+  - python
+  - numpy
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - h5py
+  # - jupyter ### jupyter notebook only
+  # - jupyterlab ### seems this might cause trouble when updating
+  - jupytext
+  - ipywidgets
+  - ipympl
+  - pandas
+  - matplotlib
+  - seaborn
+  - pillow
+  - pytorch
+  - torchvision
+  - torchaudio
+  - cudatoolkit=11.8
+#
+  - bokeh
+#
+  - umap-learn
+  - susi
+  - somoclu
+#
+  - captum
+  - tqdm
+  - arrow
+#
+  - gdal
+  - rasterio
+#
+  - opencv
+  - pywavelets
+  - pycwt
+#
+  - cython
+  - pyproj
+  - shapely
+  - rtree
+  - pyorbital
+#
+  - sympy
+#
+  - astropy
+#
+  - tabulate
+#
+  - gpytorch
+  # - gpy
+  # - botorch
+  # - fastai
+#
+  - opentsne
+#
+  - tslearn
+#
+  - pip
+  - pip:
+    - pyro-ppl
+    - SALib    
+    - tables
+    - torch-summary
+    - kornia
+    - imgaug
+    - pygeotools
+    - pygeoprocessing
+    - pyrtools
+    - earthpy
+    - filterpy
+    - acoustics
+    - deap
+    - arviz
+    - desolver
+#    - emukit
+#    - minisom
+#    - quicksom
+#    - simpsom
+  

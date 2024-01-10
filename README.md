@@ -121,10 +121,10 @@ Geothermal_ML_git_archive
 ## Details 
 The codes presented here are not turn-key applications, but rather a complete set of examples combined with an example (test) dataset. Users are encouraged to read the accompanying preprints and examine the codes themselves to gain familiarity with the approach and implementation.
 
-### Below we describe the contents of this archive more explicity.
+### Below we describe the contents of this archive more explicitly.
 
 ---
-#### datasets
+#### Datasets
 ```
 ├── datasets
 │   └── files_location.txt
@@ -134,7 +134,7 @@ This folder contains the example (test) dataset used for testing the codes. Sinc
 
 
 ---
-#### documents
+#### Documents
 ```
 ├── docs
 │   ├── Brown_et_al-Bayesian_Neural_Networks_for_Geothermal_Resource_Assessment-arxiv.org:2209.15543.pdf
@@ -143,7 +143,7 @@ This folder contains the example (test) dataset used for testing the codes. Sinc
 This folder contains the research papers written during this project and represent a textbook of the methods employed and the theory behind them for the initial Artificial Neural Network and Bayesian Neural Network implemented here. These models form the basis and provide context for the Siamese Neural Network and the Gaussian Process Regression Feature Engineering modules also provided in this archive. However, these last two modules are not described in these papers.
 
 ---
-#### license
+#### License
 ```
 ├── LICENSE.md
 ```
@@ -151,7 +151,7 @@ This folder contains the research papers written during this project and represe
 This file describes the license for use and distribution of this software.
 
 ---
-#### artificial neural networks
+#### Artificial neural networks
 ```
 ├── modules
 │   ├── ANN
@@ -161,7 +161,7 @@ This file describes the license for use and distribution of this software.
 │   │   └── ANN_skeleton_readPFAdataframe.py
 ```
 
-These are the Artificial Neural Network codes. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equilavent.
+These are the Artificial Neural Network modules. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equivalent.
 
 Here there are two modules:
 
@@ -186,7 +186,7 @@ The training module reads data prepared and preprocessed by the preprocessing mo
 │   │   └── BNN_skeleton-readPFAdataframe.py
 ```
 
-These are the Bayesian Neural Network codes. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equilavent.
+These are the Bayesian Neural Network modules. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equivalent.
 
 There are four modules:
 
@@ -196,9 +196,12 @@ There are four modules:
 
 - The third module is for looping on the key hyperparameter which balances data fit and model complexity and saving some key metrics from these trials. It is called "BNN_skeleton_alpha_loop_readPFAdataframe.ipynb." 
 
-- The fourth module is for reading the hgyperparamter metrics, creating some diagnostic plots and implements methods help choose an optiomal hyperparameter value. This module is called "BNN_skeleton-alpha-loop-plots-VCdim.ipynb." Once the optimal hyperparameter is chosed, the training module can be run to create and save a "best" model for predictions.
+- The fourth module is for reading the hyperparamter metrics, creating some diagnostic plots and implements methods help choose an optimal hyperparameter value. This module is called "BNN_skeleton-alpha-loop-plots-VCdim.ipynb." Once the optimal hyperparameter is chosen, the training module can be run to create and save a "best" model for predictions.
 
 The training module reads data prepared and preprocessed by the preprocessing module described later. The preprocessing module supplied here here makes use of the example dataset from Nevada USA. Following the example, modifying the preprocessing module allows a generic dataset to be created and custom preprocessing to be done for use of these modules in new geographic areas with possibly a different set of geological and geophysical features and a different set of training data and labels.
+
+Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equivalent.
+
 
 
 ---
@@ -213,11 +216,11 @@ The training module reads data prepared and preprocessed by the preprocessing mo
 │   │   └── PFA_save_benchmarks.py
 ```
 
-These are the data preprocessing modules. The purpose of these modules is to take a raw tabular dataset and extract the relevant information from that file (features, labels, and essential auxilary information such as geographic coordinates) for training and predictions, prescale and transform these as needed, separate the training examples from the rest and then create a python dictionary of the results. This dictionary is then saved to a python pickle archive. This preprocessed datset is in the form needed for the neural network modules described above. As such the dataset produced is "generic" and the preprocessing codes can be modified to taste.
+These are the data preprocessing modules. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equivalent.
 
-An essential preprocessing step is that of standard scaling, where the mean of each feature is removed and the values are normalized by the their standard deviation. Other things that can be don are to transform the data probability distribution to mitigate skewness and to transorm categorical data to a numerical form. These operations are application specific so the user needs to evaluate the bets approach and modify the preprocessor accordingly.
+The purpose of these modules is to take a raw tabular dataset and extract the relevant information from that file (features, labels, and essential auxiliary information such as geographic coordinates) for training and predictions, prescale and transform these as needed, separate the training examples from the rest and then create a python dictionary of the results. This dictionary is then saved to a python pickle archive. This preprocessed dataset is in the form needed for the neural network modules described above. As such the dataset produced is "generic" and the preprocessing codes can be modified to taste.
 
-Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equilavent.
+An essential preprocessing step is that of standard scaling, where the mean of each feature is removed and the values are normalized by the their standard deviation. Other things that can be don are to transform the data probability distribution to mitigate skewness and to transform categorical data to a numerical form. These operations are application specific so the user needs to evaluate the bets approach and modify the preprocessor accordingly.
 
 There are three modules:
 
@@ -225,7 +228,7 @@ There are three modules:
 
 - The working module which reads the raw tabular dataset, performs the preprocessing itself, and creates the output pickle file is called "PFA_save_benchmarks.ipynb." This module creates the input data files for training and prediction by the neural networks described earlier.
 
-- The third module allows the user to see the consequences of the preprocessing through graphical means. This module is called "PFA-preprocessing_test.ipynb." The module reads the raw datafile, performs preprocessing, and implements various displays of the results. This helps the user to adjust or to develop and test new candidate preprocessing algorithms.
+- The third module allows the user to see the consequences of the preprocessing through graphical means. This module is called "PFA-preprocessing_test.ipynb." The module reads the raw data file, performs preprocessing, and implements various displays of the results. This helps the user to adjust or to develop and test new candidate preprocessing algorithms.
 
 
 ---
@@ -241,31 +244,42 @@ There are three modules:
 │   │       └── about.txt
 ```
 
-These modules are designed for the engineering of new physics-rich feature layers for training and prediction. The new layers are derived from new data types or measurements that may not  align in space with the main positive and negative training examples. The algorithm used for this feature engineering is Gaussian processes regression which may also be known as or at least has similarities to "Kriging" as used in geostatistics. A useful reference for the method is available here: https://scikit-learn.org/stable/modules/gaussian_process.html
+These are the modules for Gaussian Processes Regression. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equivalent.
 
-The philosophy behind this is as follows. In the use of a fully-connected artificial neural network (either an ANN or a BNN) a set of input features are combined through nonlinear functions in each layer of the network. The input of each neuron in each layer, specifically the first layer, can be thought of a "engineered features since the components are combined in such a way with pre-multiplying weights (determined throu optimization) as to better represent the physics and allow the network to better separate the examples into the target classes. 
+These modules are designed for the engineering of new physics-rich feature layers for training and prediction. 
+The new layers are derived from new data types or measurements that may not  align in space with the main positive and negative training examples. The algorithm used for this feature engineering is Gaussian processes regression which may also be known as or at least has similarities to "Kriging" as used in geostatistics. Useful references for the method are available here: 
 
-In the past, engineering of the features as input to a neural network was often done by hand so as to introduce expert knowledge and to make the features better constrain the physics of the problem. We borrow from this idea and automate the process through Gaussian processes regression. Through this approach we take, say 10 features, combine them in a constrained manner using some new training information to create and 11th feature which is representative of the physics and the neural network is trained on the this enhanced feature set.
+- http://gaussianprocess.org/gpml/chapters/RW.pdf
 
-Here we provide two examples of this process: one by engineering a new feature layer by considering heatflow residual data, the second by creating a new feature layer by considering maximum subsurface water temperatures indicated by geothermometry. Both of these datasets are known as scaler values (real numbers) and locations within the study area which do not coincide with the locations of the known positive and negative training labels, nor are they known at any arbitrary pixel in the study area.
+- https://scikit-learn.org/stable/modules/gaussian_process.html
 
-It would be possible to interpolate these values (heatflow residual and geochemistry temperature) using spatial kriging by a regression on the geographic coordinates. We do not take that approach here. Instead we do a nonlinear regression in the high-dimensional feature space that we have available for training the artificial neural networks (in the example here 10 features). These original features are known at every pixel, so spatial information is implicit in the regression. 
+The philosophy behind this is as follows. In the use of a fully-connected artificial neural network (either an ANN or a BNN) a set of input features are combined through nonlinear functions in each layer of the network. The input of each neuron in each layer, specifically the first layer, can be thought of a "engineered features since the components are combined in such a way with pre-multiplying weights (determined through optimization) as to better represent the physics and allow the network to better separate the examples into the target classes. 
+
+In the past, engineering of the features as input to a neural network was often done by hand so as to introduce expert knowledge and to make the features better constrain the physics of the problem. We borrow from this idea and automate the process through Gaussian processes regression. Through this approach we take, say 10 features, combine them in a constrained manner using some new training information to create an 11th feature which is representative of the physics and the neural network is trained on the this enhanced feature set.
+
+Here we provide two examples of this process: one by engineering a new feature layer by considering heatflow residual data, the second by creating a new feature layer by considering maximum subsurface water temperatures indicated by geothermometry. Both of these datasets are known as scalar values (real numbers) and locations within the study area which do not coincide with the locations of the known positive and negative training labels, nor are they known at any arbitrary pixel in the study area.
+
+It would be possible to interpolate these values (heatflow residual and geochemistry temperature) using spatial Kriging by a regression on the geographic coordinates. We do not take that approach here. Instead we do a nonlinear regression in the high-dimensional feature space that we have available for training the artificial neural networks (in the example here 10 features). These original features are known at every pixel, so spatial information is implicit in the regression. 
 
 It is assumed that first the regression target (e.g. heat flow residual) is a key indicator of our physical system which will allow us to predict the viability of a positive geothermal prospect. Second it is assumed that the base features have some intrinsic relation or capacity to predict the regression target itself (e.g. heat flow residual). So we combine the base features to interpolate the regression target as a scalar value, predict it everywhere, then use it as a newly engineered feature for classification with the artificial neural networks.
 
-The codes for perfoming this process are:
+The codes for performing this process are:
 
 - "HF-residual_Gaussian_Process_Regression.ipynb" for heat flow residuals.
 
 -  "GeochemT_Gaussian_Process_Regression.ipynb" for geochemistry temperatures. 
 
-- Auxilary datasets for these examples are provided in the data archive described earlier. 
+- Auxiliary datasets for these examples are provided in the data archive described earlier. 
 
 - An empty directory, "results," is provided as a place for the working plots.
 
 The codes first read both the original and new datasets, extract the usable information from each as needed for the regressions, perform the regressions, and finally the results are plotted and saved. 
 
-There are a few things to note. First there may be a need for custom preprocessing of the new regression target dataset, such as standard scaling and probability transformations. Examples of these are shown. Second there are hyperparameters that need to be carefully chosen for the regression algorithm. The consequences of these choices may be difficult to discern, so we provide some powerful dimensionality reduction algorithms and associated plots to allow the user to visualize the results and make the appropriate decisions. Useful references for the UMAP dimensionality reduction methods is available here: https://pypi.org/project/umap-learn/ and here https://arxiv.org/abs/1802.03426
+There are a few things to note. First there may be a need for custom preprocessing of the new regression target dataset, such as standard scaling and probability transformations. Examples of these are shown. Second there are hyperparameters that need to be carefully chosen for the regression algorithm. The consequences of these choices may be difficult to discern, so we provide some powerful dimensionality reduction algorithms and associated plots to allow the user to visualize the results and make the appropriate decisions. Useful references for the UMAP dimensionality reduction methods are available here:
+
+- https://pypi.org/project/umap-learn/ 
+
+- https://arxiv.org/abs/1802.03426
 
 
 ---
@@ -279,4 +293,31 @@ There are a few things to note. First there may be a need for custom preprocessi
 │       ├── BNN_trainable_siamese_ContrastiveLoss_EuclidianDist-skeleton.ipynb
 │       └── BNN_trainable_siamese_ContrastiveLoss_EuclidianDist-skeleton.py
 ```
+
+These are the modules for Siamese Neural Networks for site-by-site comparison. Generally, two separate files are provided for each purpose: (1) a python-based jupyter notebook *.ipynb and (2) a plain python version with markdown *.py . Both are functionally equivalent.
+
+We borrow from image recognition and facial recognition applications to develop a geothermal energy prospect geographic site-by-site comparison using Siamese neural networks. The basic idea is that a neural network is run twice for each case (or in a sense making an interconnected twin, thus the reference to Siamese twins). One of the two sites is considered the reference, the other site(s) are tests. 
+
+For a fully-connected neural network classifier each layer represents, in effect, an "engineered" feature set that has been created through non-linear combination of the original features in such a way as to better separate the training classes.
+
+So, more explicitly, the set of geological and geophysical features for two separate geographic sites are fed part-way through the network to generate a set of salient "engineered" features that are then compared one set to another. These two engineered feature sets define two vectors in a high dimensional space. A metric describing the distance between these two vectors is calculated and represented as a "similarity" between the two sites. 
+
+Given a reference site, then, the remaining pixels in the study area map can be compared and a new map of similarity to the reference can be produced. The intersection of this map with, say, the map of the regional resource potential probability generated by a Bayesian neural network, for example, may provide additional evidence for site selection.
+
+Here two modules are provided: 
+
+- The first module uses a pretrained Bayesian neural network optimized previously for defining resource probability through use of a training set. This module is called "BNN_pretrained_siamese_ContrastiveLoss_EuclidianDist-skeleton.ipynb." Once trained, internal layers of this network can be utilized in a Siamese neural network forward calculation. Note that there are several options for defining the distance or similarity of the two sites. Here, the Euclidian distance between the vectors is used as the basis for this calculation. The user should consider these carefully for best use in their specific application.
+
+- The second module attempts to train a Siamese Bayesian neural network from scratch, specifically optimized for the purpose of Siamese neural network similarity calculations. This module is called "BNN_trainable_siamese_ContrastiveLoss_EuclidianDist-skeleton.ipynb." This version uses the same training set as the BNN models, where now all of the geothermal benchmark training examples are fed to the twins in pairs (++, +-, -+, and --) for comparison. This module requires use of a different type of loss function of optimization. Contrastive loss is used here 
+which requires some important hyperparameters to be chosen. Other options are available in the literature.
+
+Some detailed discussions of Siamese neural networks and options for the loss function used during training are available here:
+
+- https://dl.acm.org/doi/10.5555/2987189.2987282
+
+- https://becominghuman.ai/siamese-networks-algorithm-applications-and-pytorch-implementation-4ffa3304c18
+
+- https://towardsdatascience.com/how-to-choose-your-loss-when-designing-a-siamese-neural-net-contrastive-triplet-or-quadruplet-ecba11944ec
+
+- https://neptune.ai/blog/content-based-image-retrieval-with-siamese-networks
 

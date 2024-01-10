@@ -103,17 +103,8 @@ Geothermal_ML_git_archive
 ├── README.md
 ├── requirements.md
 ├── tests
-│   ├── pytorch_test1.ipynb
-│   ├── pytorch_test2.ipynb
-│   └── pytorch_test3.ipynb
 └── tools
-    └── 000_pythonEnvironments
-        └── Mamba
-            ├── install_mamba_notes.txt
-            └── pyTorch
-                └── environment-pytorchGeo.yml
 
-15 directories, 38 files
 ```
 
 
@@ -321,3 +312,14 @@ Some detailed discussions of Siamese neural networks and options for the loss fu
 
 - https://neptune.ai/blog/content-based-image-retrieval-with-siamese-networks
 
+
+---
+#### Requirements, Tests, and Tools
+
+```
+├── requirements.md
+├── tests
+└── tools
+```
+
+These files contain basic information on how to install, use, and test the software modules in this archive.

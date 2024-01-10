@@ -205,7 +205,7 @@ Generally, two separate files are provided for each purpose: (1) a python-based 
 
 
 ---
-#### data preprocessing
+#### Data preprocessing
 ```
 ├── modules
 │   ├── data_preprocessing

@@ -25,7 +25,7 @@ $500,000
 U.S. Department of Energy Geothermal Technologies Office (award number DE-EE0008762).
 
 ### Project goal:
- Apply machine learning (ML) techniques to develop an algorithmic approach to identify new geothermal systems in the Great Basin region and build on the successes of the Nevada geothermal play fairway project. The reason for this is that an algorithmic approach that empirically learns to estimate weights of influence for diverse parameters may scale and perform better than the original workflow developed for play fairway analysis. Project activities include augmenting the number of training sites (positive and negative) that are needed to train the ML algorithms, transforming the data into formats suitable for ML, and development and testing of the ML techniques and outputs.
+ Apply machine learning (ML) techniques to develop an algorithmic approach to identify new geothermal systems in the Great Basin region and build on the successes of the Nevada geothermal play fairway project. The reason for this effort is that an algorithmic approach, which empirically learns to estimate weights of influence for diverse parameters, may scale and perform better than the original workflow developed for play fairway analysis. Project activities include augmenting the number of training sites (positive and negative) that are needed to train the ML algorithms, transforming the data into formats suitable for ML, and development and testing of the ML techniques and outputs.
 
 
  # and 

@@ -169,7 +169,7 @@ def preprocess_features_LocalCategorical(df_features, df_SSlookup, resetLocal=No
 
     #####################################
     # encode all categorical features
-    onehot_encoder = preprocessing.OneHotEncoder(sparse=False)
+    onehot_encoder = preprocessing.OneHotEncoder(sparse_output=False)
     ordinal_encoder = preprocessing.OrdinalEncoder() 
 
     categoriesLSS = np.sort(df_categorical_features_noNull['Local-StructuralSetting'].unique())

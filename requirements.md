@@ -72,6 +72,8 @@ or use a different browser from the system default, e.g.,
 ```console
 (pytorchGeo) $ ^c^c
 ```
+another good way to run jupyter notebooks is to use Visual Studio Code available from:
+https://code.visualstudio.com/
 
 ---
 
@@ -86,14 +88,41 @@ or use a different browser from the system default, e.g.,
 
 ```yml
 name: pytorchGeo
-# see https://pytorch.org/get-started/locally/
 
-# to use: perform two steps ... make a jupyterlab barebones env, then activate and update with this yml file
-# bash Mambaforge-$(uname)-$(uname -m).sh
-# mamba create -n pytorchGeo jupyterlab -c conda-forge
-### mamba activate pytorchGeo
-# cd Desktop/AnacondaEnvironments/pyTorch/
-# mamba env update -f environment-pytorchGeo.yml
+############################################################################################################## 
+# This is a "yml" file for setting up a python environment for geoscience machine learning 
+# using pytorch and other useful libraries.
+
+# The environment is named "pytorchGeo".
+
+# This makes use of "mamba," a Python-based CLI conceived as a drop-in replacement for conda 
+# as was originally used in the "anaconda" python distribution. 
+# For details see: "https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html".
+
+# For the latest information about installing pytorch
+# see: https://pytorch.org/get-started/locally/.
+
+# To install the environment perform two steps: first make a barebones jupyterlab environment, 
+# then update it with this yml file.
+
+# From the command line in a terminal as an ordinary user with a prompt '$' do the following
+# (choosing the default answers to questions):
+
+# wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+# bash Miniforge3-$(uname)-$(uname -m).sh
+
+# $ mamba create -n pytorchGeo jupyterlab -c conda-forge
+# close the terminal and open a new one ... then go to folder with the yml file
+
+# $ cd pythonEnvironments/Mamba/pyTorch/
+# $ mamba env update --name pytorchGeo --file environment-pytorchGeo.yml
+  
+### Warning: don't use the flag "--prune" above as it will remove jupyterlab, etc! ###
+  
+### You can now start the environment by typing:
+  
+# $ mamba activate pytorchGeo
+############################################################################################################## 
 
 channels: 
   - conda-forge
@@ -109,11 +138,11 @@ dependencies:
   - scikit-learn
   - scikit-image
   - h5py
-  - pytables
   # - jupyter ### jupyter notebook only
   # - jupyterlab ### seems this might cause trouble when updating
   - jupytext
   - ipywidgets
+  - ipykernel
   - ipympl
   - pandas
   - matplotlib
@@ -124,16 +153,17 @@ dependencies:
   - torchaudio
   - cudatoolkit=11.8
 #
+  - pyarrow
+#
   - bokeh
 #
   - umap-learn
-#
-  # - susi
-  # - somoclu
+  - susi
+  - somoclu
 #
   - captum
-  - tqdm
-  - arrow
+#  - tqdm
+  # - arrow
 #
   - gdal
   - rasterio
@@ -141,6 +171,8 @@ dependencies:
   - opencv
   - pywavelets
   - pycwt
+#
+  - librosa
 #
   - cython
   - pyproj
@@ -162,11 +194,15 @@ dependencies:
   - opentsne
 #
   - tslearn
+  - dtaidistance
+#
+  - natsort
 #
   - pip
   - pip:
     - pyro-ppl
     - SALib    
+    - tables
     - torch-summary
     - kornia
     - imgaug
@@ -179,9 +215,14 @@ dependencies:
     - deap
     - arviz
     - desolver
-    # - tables ### this is same as pytables installed above
-    # - emukit
-    # - minisom
-    # - quicksom
-    # - simpsom
+    - colormaps
+    - ncps
+    - pytorch-lightning
+#
+    - vscode-tqdm
+     
+#    - emukit
+#    - minisom
+#    - quicksom
+#    - simpsom
 ```

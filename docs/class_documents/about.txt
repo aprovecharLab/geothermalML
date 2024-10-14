@@ -1,0 +1,1 @@
+This folder contains documents used for the Geothermal Machine Learning class at taught at Jilin University, Changchun, China.
